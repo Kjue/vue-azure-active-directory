@@ -55,6 +55,14 @@
   },
   "license": "MIT",
   "main": "/dist/build.js",
+  "files": [
+    "dist/**",
+    "src/**",
+    ".babelrc",
+    "webpack.config.js",
+    "README.md",
+    "LICENSE.md"
+  ],
   "name": "vue-azure-active-directory",
   "private": false,
   "scripts": {
