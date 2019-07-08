@@ -69,5 +69,6 @@
     "prepare": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot"
   },
+  "repository": "https://github.com/Kjue/vue-azure-active-directory",
   "version": "0.1.1"
 }
