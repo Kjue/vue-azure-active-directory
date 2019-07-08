@@ -24,8 +24,8 @@
   "_spec": "vue-azure-active-directory",
   "_where": "C:\\Prod\\wf2705-01",
   "author": {
-    "name": "Kevin McCarthy",
-    "email": "kevin@kaymic.com"
+    "name": "Mikael Lavi",
+    "email": "mikael@lamek.fi"
   },
   "browserslist": [
     "> 1%",
@@ -38,7 +38,7 @@
     "msal": "^0.2.4"
   },
   "deprecated": false,
-  "description": "A Vue.js project",
+  "description": "Vue.js plugin to connect with MSAL client library to Azure Active Directory. Forked from the package by Kevin McCarthy <kevin@kaymic.com>.",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",

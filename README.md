@@ -1,6 +1,6 @@
 # vue-azure-active-directory
 
-> A Vue.js Plugin
+Vue.js plugin to connect with MSAL client library to Azure Active Directory. Forked from the [package](https://www.npmjs.com/package/vue-azure-active-directory) by Kevin McCarthy <kevin@kaymic.com>. Original code is MIT licensed as visible on the package page. This was not listed in GitHub under the creator's repositories.
 
 ## Basic Use
 
