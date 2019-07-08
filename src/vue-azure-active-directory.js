@@ -1,6 +1,27 @@
 import { UserAgentApplication } from 'msal'
 import axios from 'axios'
 
+/**
+ * Vue MSAL client plugin. This class is initialized with the optins
+ * that define the client connection.
+ * @param clientID: The AD client identifier.
+ * @param authority: The authority to use for AD. Default 'https://login.microsoftonline.com/common'
+ * @param graphScopes: The graph scopes to use when reading details from MS Graph connection. Default ['user.read'].
+ * @param graphEndpoint: The MS Graph endpoint to use. Default 'https://graph.microsoft.com/v1.0/me'
+ * @param agentOptions: Agent client options are all nullable values, so they may be provided; otherwise defaults apply.
+ * @param agentOptions.redirectUri The redirect uri on the login.
+ * @param agentOptions.navigateToLoginRequestUrl The flag to override redirect.
+ * @param agentOptions.postLogoutRedirectUri Uri to redirect to after logout completed.
+ * @param agentOptions.cacheLocation Possible values are localStorage, sessionStorage.
+ * @param agentOptions.storeAuthStateInCookie 
+ * @param agentOptions.validateAuthority The flag to validate the authority given.
+ * @param agentOptions.protectedResourceMap 
+ * @param agentOptions.unprotectedResources 
+ * @param agentOptions.logger 
+ * @param agentOptions.loadFrameTimeout 
+ * @param agentOptions.isAngular 
+ * @param agentOptions.state 
+ */
 export default class VueAzureActiveDirectory {
   static install (Vue, options) {
     Vue.prototype.$azure = new Vue({
@@ -19,8 +40,12 @@ export default class VueAzureActiveDirectory {
         }
       },
       methods: {
+        /**
+         * Login using the MSAL helpers. This method only provides the login popup option.
+         * @returns Promise that resolves the login action.
+         */
         login () {
-          this.agent.loginPopup(this.$options.graphScopes).then(id => {
+          return this.agent.loginPopup(this.$options.graphScopes).then(id => {
             this.acquireToken()
           }).catch(err => { console.warn('Login Error: ', err) })
         },
@@ -50,7 +75,11 @@ export default class VueAzureActiveDirectory {
       },
       computed: {
         agent () {
-          return new UserAgentApplication(this.$options.clientID, this.$options.authority, this.tokenReceivedCallBack, {})
+          return new UserAgentApplication(
+            this.$options.clientID,
+            this.$options.authority,
+            this.tokenReceivedCallBack,
+            this.$options.agentOptions || {})
         },
         graphParams () {
           return {
