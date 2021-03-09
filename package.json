@@ -19,7 +19,7 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "msal": "^0.2.4"
   },
   "devDependencies": {
